@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>SENNA</title>
   
   
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>1985-10-26T08:15:00.000Z</updated>
+  <updated>2022-12-28T09:00:53.933Z</updated>
   <id>http://example.com/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>SENNA</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
+    <title>My first blog</title>
     <link href="http://example.com/2022/12/28/hello-world/"/>
     <id>http://example.com/2022/12/28/hello-world/</id>
     <published>2022-12-28T02:51:40.020Z</published>
-    <updated>1985-10-26T08:15:00.000Z</updated>
+    <updated>2022-12-28T09:00:53.933Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>Hi,My name is senna</p><h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><h3 id="myself"><a href="#myself" class="headerlink" title="myself"></a>myself</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我叫翁，也可以叫我senna</span><br><span class="line">我来自中国广东，目前就读于高一</span><br><span class="line">喜欢日漫，游戏，写网站</span><br><span class="line">目前正在学习英语与日语</span><br></pre></td></tr></table></figure><h2 id="未来计划"><a href="#未来计划" class="headerlink" title="未来计划"></a>未来计划</h2><h3 id="Blog-amp-amp-me"><a href="#Blog-amp-amp-me" class="headerlink" title="Blog &amp;&amp; me"></a>Blog &amp;&amp; me</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Blog: 今后会在博客中分享二次元，代码的学习，游戏，日常生活等</span><br><span class="line">      不断完善我的博客</span><br><span class="line">me： 日本早稻田大学</span><br><span class="line">     全栈工程师</span><br><span class="line">     好好生活，好好学习：）</span><br></pre></td></tr></table></figure><h2 id="博客搭建初衷"><a href="#博客搭建初衷" class="headerlink" title="博客搭建初衷"></a>博客搭建初衷</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">作为一名网站的开发者，怎能没有一个属于自己的博客呢？</span><br></pre></td></tr></table></figure><h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">QQ: 1765717028</span><br><span class="line">Wechat: juruo20060904</span><br><span class="line">Github: @sennanana</span><br><span class="line">Email: 1765717028@qq.com</span><br><span class="line">Bilibili: せな</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+    <summary type="html">&lt;p&gt;Hi,My name is senna&lt;/p&gt;
+&lt;h2 id=&quot;关于我&quot;&gt;&lt;a href=&quot;#关于我&quot; class=&quot;headerlink&quot; title=&quot;关于我&quot;&gt;&lt;/a&gt;关于我&lt;/h2&gt;&lt;h3 id=&quot;myself&quot;&gt;&lt;a href=&quot;#myself&quot; class=&quot;h</summary>
       
     
     

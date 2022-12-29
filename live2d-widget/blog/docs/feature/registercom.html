@@ -1,0 +1,471 @@
+<h1 id="注册组件"><a href="#注册组件" class="headerlink" title="注册组件"></a>注册组件</h1><p>::: tip</p>
+<p>在v1.4.2版本中，你可以自己增加新的页面，通过url进行访问，使用方法如下</p>
+<p>:::</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在v1.4.2版本中，主题新增了一个全局组件，在这个组件中，默认只保留了导航栏，手机端侧边栏，样式菜单，背景图片，并且你可以通过传入<code>props</code>属性，不展示他们</p>
+<p>默认的内容如下</p>
+<img src="https://ooszy.cco.vin/img/blog-note/image-20211021224708201.png?x-oss-process=style/pictureProcess1" alt="image-20211021224708201" style="zoom:50%;" />
+
+
+
+<p>或者你什么都不要，完全按照你想要的进行布局</p>
+<img src="https://ooszy.cco.vin/img/blog-note/image-20211021224804290.png?x-oss-process=style/pictureProcess1" alt="image-20211021224804290" style="zoom:50%;" />
+
+
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>使用步骤</p>
+<ul>
+<li><p>在<code>docs/.vuepress</code>文件夹内，任意位置，创建一个<code>.vue</code>文件，推荐创建一个单独文件夹，用来保存这些组件</p>
+</li>
+<li><p>在<code>docs/.vuepress</code>目录下，新建<code>clientAppEnhance.js</code>文件，文件的内容如下</p>
+<pre><code class="js">import { defineClientAppEnhance } from &#39;@vuepress/client&#39;
+
+export default defineClientAppEnhance(({ app, router, siteData }) =&gt; {
+  // ...
+})
+</code></pre>
+<p>::: tip</p>
+<ul>
+<li><code>app</code> 是由 <a href="https://v3.cn.vuejs.org/api/application-api.html">createApp</a> 创建的 Vue 应用实例。</li>
+<li><code>router</code> 是由 <a href="https://next.router.vuejs.org/zh/api/index.html#createrouter">createRouter</a> 创建的路由实例。</li>
+<li><code>siteData</code> 是一个根据用户配置生成的对象，包含 <a href="https://v2.vuepress.vuejs.org/zh/reference/config.html#base">base</a>, <a href="https://v2.vuepress.vuejs.org/zh/reference/config.html#lang">lang</a>, <a href="https://v2.vuepress.vuejs.org/zh/reference/config.html#title">title</a>, <a href="https://v2.vuepress.vuejs.org/zh/reference/config.html#description">description</a>, <a href="https://v2.vuepress.vuejs.org/zh/reference/config.html#head">head</a> 和 <a href="https://v2.vuepress.vuejs.org/zh/reference/config.html#locales">locales</a>。</li>
+</ul>
+<p>Client App Enhance 会在客户端应用创建后被调用，它可以为 Vue 应用添加任意功能。</p>
+<p>详细介绍，可以查看官方说明<a href="https://v2.vuepress.vuejs.org/zh/advanced/cookbook/usage-of-client-app-enhance.html">https://v2.vuepress.vuejs.org/zh/advanced/cookbook/usage-of-client-app-enhance.html</a></p>
+</li>
+</ul>
+<p>​        :::</p>
+<ul>
+<li><p>你现在就可以在此<code>clientAppEnhance.js</code>文件中，注册组件，或者是进行其他的操作，在此文件中，如果你在此文件中，注册了一个组件，那么这个组件是一个全局组件，你可以在<code>.md</code>文件中，直接使用该组件(<code>vuepress框架，会先将.md文件解析成.vue文件，然后再是.html</code>)</p>
+</li>
+<li><p>在<code>docs/</code>目录下，新建一个<code>.md</code>，在此文件中，写入下面frontmatter</p>
+<pre><code class="md">---
+layout: Aurora #你刚才注册的组件 Aurora.vue
+---
+</code></pre>
+<blockquote>
+<p>如果你在<code>.md</code>文件中，写入上面frontmatter，那么这个md文件，将使用<code>Aurora</code>作为布局，尽管此md文件中，还存在其他的内容，都会被清空</p>
+</blockquote>
+</li>
+<li><p>然后现在你就可以在<code>Aurora.vue</code>中，进行任意的布局了</p>
+</li>
+</ul>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>下面是一个简单的案例</p>
+<blockquote>
+<p><code>创建组件</code></p>
+</blockquote>
+<pre><code class="vue">&lt;template&gt;
+&lt;!--docs/.vuepress/components/Aurora.vue--&gt;
+  &lt;aurora-global :show-bg=&quot;true&quot; :show-style-menu=&quot;true&quot; :show-navbar=&quot;true&quot;&gt;
+    &lt;template #top&gt;
+      &lt;h1 style=&quot;margin: 0 auto&quot;&gt;注册组件测试&lt;/h1&gt;
+    &lt;/template&gt;
+
+    &lt;template #center&gt;
+      &lt;div style=&quot;width: 30rem;height: 30rem;background: plum;margin: 0 auto&quot;&gt;&lt;/div&gt;
+    &lt;/template&gt;
+
+    &lt;template #bottom&gt;
+      &lt;aurora-footer/&gt;
+    &lt;/template&gt;
+  &lt;/aurora-global&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: &quot;Mycom&quot;
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+
+&lt;/style&gt;
+</code></pre>
+<blockquote>
+<p>注册全局组件</p>
+</blockquote>
+<pre><code class="js">//clientAppEnhance.js
+
+import { h } from &#39;vue&#39;;
+import { defineClientAppEnhance } from &#39;@vuepress/client&#39;;
+import Aurora from &#39;./components/Aurora&#39;
+export default defineClientAppEnhance(({ app, router }) =&gt; {
+    app.component(&quot;Aurora&quot;,Aurora)
+});
+</code></pre>
+<blockquote>
+<p>新建<code>docs/register.md</code>文件，并指定<code>layout</code></p>
+</blockquote>
+<pre><code class="md">---
+layout: Aurora
+---
+</code></pre>
+<p>因为<code>docs/</code>目录下的md文件，会自动解析成<code>.html</code>，你可以直接在浏览器中进行访问，<code>localhost:8080/register.html</code></p>
+<p>结果</p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211021230635363.png?x-oss-process=style/pictureProcess1" alt="image-20211021230635363"></p>
+<p>::: tip</p>
+<p>接下来，其他的事情，就交给你进行创造了</p>
+<p>::: </p>
+<h2 id="AuroraGlobal-vue"><a href="#AuroraGlobal-vue" class="headerlink" title="AuroraGlobal.vue"></a>AuroraGlobal.vue</h2><p>此组件是一个全局组件，组件的内容如下</p>
+<pre><code class="vue">&lt;template&gt;
+  &lt;div class=&quot;common&quot;
+       :style=&quot;$store.state.borderRadiusStyle +
+       $store.state.opacityStyle + $store.state.fontColorStyle +
+       $store.state.fontFamilyStyle + $store.state.filterBlurStyle&quot;&gt;
+    &lt;Navbar class=&quot;sidebar-single-enter-animate&quot; :style=&quot;$store.state.opacityStyle&quot; v-if=&quot;showNavbar&quot;&gt;
+      &lt;template #before&gt;
+        &lt;slot name=&quot;navbar-before&quot; /&gt;
+      &lt;/template&gt;
+      &lt;template #after&gt;
+        &lt;slot name=&quot;navbar-after&quot; /&gt;
+      &lt;/template&gt;
+    &lt;/Navbar&gt;
+    &lt;mobile-sidebar v-if=&quot;showMobileSidebar&quot;/&gt;
+    &lt;social-spin v-if=&quot;showStyleMenu&quot;/&gt;
+    &lt;style-menu
+        v-if=&quot;showStyleMenu&quot;
+        :theme-property=&quot;themeProperty&quot;
+        @setIsFitter=&quot;setIsFitter&quot;
+        @setBodyStyle=&quot;getBodyStyle&quot;
+        @setBodyWallpaper=&quot;setBodyWallpaper&quot;
+        :is-show-ico=&quot;true&quot;
+        custom-class=&quot;custom-about&quot;/&gt;
+    &lt;slot name=&quot;top&quot;&gt;&lt;/slot&gt;
+    &lt;slot name=&quot;center&quot;&gt;&lt;/slot&gt;
+    &lt;slot name=&quot;bottom&quot;&gt;&lt;/slot&gt;
+    &lt;div id=&quot;set-bg&quot;
+         v-if=&quot;showBg&quot;
+         :class=&quot;{&#39;set-bg-fitter&#39;: $store.state.isFitter}&quot;
+         :style=&quot;&#39;--opacity: &#39; + $store.state.varOpacity +
+         &#39;; --fitter-blue: &#39; + $store.state.varFilterBlur +
+         &#39;px; --borderRadius: &#39; + $store.state.varBorderRadius +
+         &#39;px; --backgroundImageUrl: url(&#39; + $store.state.homeWps + &#39;)&#39;&quot;
+    &gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/template&gt;
+&lt;script lang=&quot;ts&quot;&gt;
+
+//组件导入
+import StyleMenu from &#39;../child/home/StyleMenu.vue&#39;
+import Navbar from &#39;../../components/Navbar.vue&#39;
+import Home from &#39;../Home&#39;
+import MobileSidebar from &quot;../child/side/MobileSidebar.vue&quot;;
+import SocialSpin from &#39;../SocialSpin&#39;
+
+//配置导入
+import {computed, defineComponent, Transition,} from &#39;vue&#39;
+import {usePageData, usePageFrontmatter} from &#39;@vuepress/client&#39;
+import type {DefaultThemePageFrontmatter} from &#39;../../../shared&#39;
+import {useThemeData, useThemeLocaleData} from &#39;../../composables&#39;
+import EasyTyper from &quot;easy-typer-js&quot;;
+import $ from &#39;jquery&#39;
+
+export default defineComponent({
+  name: &#39;Common&#39;,
+  components: {
+    SocialSpin,
+    Navbar,
+    Transition,
+    StyleMenu,
+    Home,
+    MobileSidebar,
+  },
+  props: {
+    showBg: {
+      type: Boolean,
+      default() {
+        return true
+      }
+    },
+    showStyleMenu: {
+      type: Boolean,
+      default() {
+        return true
+      }
+    },
+    showNavbar: {
+      type: Boolean,
+      default() {
+        return true
+      }
+    },
+    showMobileSidebar: {
+      type: Boolean,
+      default() {
+        return true
+      }
+    }
+  },
+  data() {
+    return {
+      sidebarRowVar: 5,
+      colorStyle: &#39;&#39;,
+      fontStyle: &#39;&#39;,
+      isShowFooter: &#39;&#39;,
+      colorFontStyle: &#39;&#39;,
+      isFitter: false,
+      themeProperty: &#39;&#39;,
+      //首页壁纸数组
+      homeWps: [],
+      mobilePageSidebar: true
+    }
+  },
+  computed: {
+    setBodyStyle() {
+      if (this.fontStyle === &quot;&quot;) {
+        return &quot;&quot;
+      }
+      return this.$store.state.fontColorStyle + &quot;;&quot;+ this.$store.state.fontFamilyStyle
+    }
+  },
+  methods: {
+    getBodyStyle() {
+      let fontColorStyle = this.$store.state.fontColorStyle
+      let fontFamilyStyle = this.$store.state.fontFamilyStyle
+
+      if (fontColorStyle === undefined) {
+        this.colorStyle = &#39;--fontColor: &quot;&quot;&#39;
+      }else {
+        this.colorStyle = fontColorStyle
+      }
+      if (fontFamilyStyle === undefined) {
+        this.fontStyle = &#39;--fontFamily: &quot;&quot;&#39;
+      }else {
+        this.fontStyle = fontFamilyStyle
+      }
+
+      this.colorFontStyle = this.colorStyle + &quot; &quot;+ this.fontStyle
+    },
+    setBodyWallpaper() {
+      //切换首页壁纸
+      if (this.homeWps.length === 1) {
+        this.$store.commit(&quot;setHomeWps&quot;,{
+          homeWps: this.homeWps[0]
+        })
+        return
+      }
+
+      for (let i = 0; i &lt; this.homeWps.length; i++) {
+        if (this.$store.state.homeWps.search(this.homeWps[i]) !== -1) {
+          if (i === this.homeWps.length -1) {
+            this.$store.commit(&quot;setHomeWps&quot;,{
+              homeWps: this.homeWps[0]
+            })
+            return;
+          }else {
+            this.$store.commit(&quot;setHomeWps&quot;,{
+              homeWps: this.homeWps[i + 1]
+            })
+            return;
+          }
+        }
+      }
+    },
+    setIsFitter(isFitter) {
+      this.isFitter = isFitter
+    },
+  },
+  setup() {
+    const page = usePageData()
+    const frontmatter = usePageFrontmatter&lt;DefaultThemePageFrontmatter&gt;()
+    const themeLocale = useThemeLocaleData()
+
+    // navbar
+    const shouldShowNavbar = computed(
+        () =&gt;
+            frontmatter.value.navbar !== false &amp;&amp; themeLocale.value.navbar !== false
+    )
+
+    return {
+      themeLocale,
+      frontmatter,
+      page,
+      shouldShowNavbar,
+    }
+  },
+  created() {
+    if (this.$store.state.printRightIndex === 0) {
+      console.log(&quot;%c vuepress-theme-Aurora %c by qsyyke&quot;,&quot;font-weight: bold;color: white;display: inline-block;text-align: center;height: 1.5rem;line-height: 1.5rem;background-color: rgba(255,202,212,.8);padding: 10px;border-bottom-left-radius: 13px;border-top-left-radius: 13px;&quot;,&quot;font-weight: bold;color: white;display: inline-block;text-align: center;height: 1.5rem;line-height: 1.5rem;background-color: rgba(178,247,239,.85);padding: 10px;border-bottom-right-radius: 13px;border-top-right-radius: 13px;&quot;)
+      console.log(&quot;%c Version %c &quot;+ this.$store.state.latestVersion + &quot;&quot;,&quot;font-weight: bold;color: white;display: inline-block;text-align: center;height: 1.5rem;line-height: 1.5rem;background-color: rgba(255,202,212,.8);padding: 10px;border-bottom-left-radius: 13px;border-top-left-radius: 13px;&quot;,&quot;font-weight: bold;color: white;display: inline-block;text-align: center;height: 1.5rem;line-height: 1.5rem;background-color: rgba(178,247,239,.85);padding: 10px;border-bottom-right-radius: 13px;border-top-right-radius: 13px;&quot;)
+    }
+
+    this.$store.state.printRightIndex = 1
+    this.themeProperty = useThemeData().value
+
+    //从配置文件中，获取首页壁纸
+    let homeWps = []
+    if (this.themeProperty.homeWps === undefined || this.themeProperty.homeWps == null) {
+      homeWps.push(&quot;https://picoss.cco.vin/animate/wall/404901.png&quot;)
+    }else {
+      homeWps = this.themeProperty.homeWps
+    }
+
+    if (homeWps.length === 0) {
+      homeWps.push(&quot;https://picoss.cco.vin/animate/wall/404901.png&quot;)
+    }
+
+    this.homeWps = homeWps
+
+    if (this.aboutOption !== undefined || this.aboutOption != null) {
+      this.aboutOption = this.themeProperty.about
+    }
+
+    this.$store.commit(&quot;setIsFitter&quot;,{
+      isFitter: this.themeProperty.isFitter
+    })
+    this.isShowFooter = this.themeProperty.isShowFooter
+
+    let fontColorStyle = this.$store.state.fontColorStyle
+    let fontFamilyStyle = this.$store.state.fontFamilyStyle
+    if (fontColorStyle === undefined) {
+      this.colorStyle = &#39;--fontColor: &quot;&quot;&#39;
+    }else {
+      this.colorStyle = fontColorStyle
+    }
+    if (fontFamilyStyle === undefined) {
+      this.fontStyle = &#39;-fontFamily: &quot;&quot;&#39;
+    }else {
+      this.fontStyle = fontFamilyStyle
+    }
+
+    this.colorFontStyle = this.colorStyle + &quot; &quot;+ this.fontStyle
+  },
+  mounted() {
+    if (document.documentElement.clientWidth &lt; 719) {
+      this.sidebarRowVar = 6
+    }
+
+    //手机端壁纸
+    let screen = document.body.clientWidth
+    if (screen &lt; 500) {
+      if (this.themeProperty.homeWpsMobile !== undefined &amp;&amp;
+          this.themeProperty.homeWpsMobile != null) {
+        try {
+          if (this.themeProperty.homeWpsMobile.length !== 0) {
+            this.homeWps = this.themeProperty.homeWpsMobile
+          }
+        }catch (e) {
+        }
+      }
+    }
+
+    let backgroundUrl = &#39;&#39;
+    if (this.$store.state.homeWps === &quot;&quot;) {
+      //将首页壁纸设置为配置文件数组中的第一张图片
+      backgroundUrl = this.homeWps[0]
+    }else {
+      //将首页壁纸设置为配置文件数组中的第一张图片
+      backgroundUrl = this.$store.state.homeWps
+    }
+    this.$store.commit(&quot;setHomeWps&quot;,{
+      homeWps: backgroundUrl
+    })
+
+
+    const frontmatter = usePageFrontmatter&lt;DefaultThemePageFrontmatter&gt;()
+    let keywordValue = this.themeProperty.keyword
+    let descriptionValue = this.themeProperty.description
+
+    if (keywordValue === undefined) {
+      keywordValue = &quot;vuepress,vuepress-theme-aurora,blog-theme&quot;
+    }
+
+    if (descriptionValue === undefined) {
+      descriptionValue = &quot;个人博客&quot;
+    }
+
+    if (frontmatter.value.home) {
+      //如果是首页的话，就将key和description设置为配置中的
+      let descriptionDom = document.querySelectorAll(&#39;meta[name=&quot;description&quot;]&#39;)
+      let keywordDom= document.querySelector(&#39;meta[name=&quot;keyword&quot;]&#39;)
+
+      //设置关键词
+      if (keywordDom === null) {
+        //head中没有keyword 添加一个
+        let keywordMeta = $(&#39;&lt;meta name=&quot;keyword&quot; content=&quot;&#39;+ keywordValue +&#39;&quot;&gt;&#39;).get(0)
+        document.querySelector(&quot;head&quot;).appendChild(keywordMeta)
+      }else {
+        //已经存在keyword属性的dom 设置其content
+        keywordDom.setAttribute(&quot;content&quot;,keywordValue)
+      }
+
+      if (descriptionDom.length !== 0) {
+        new Promise((resolve,reject) =&gt; {
+          for (let i = 0; i &lt; descriptionDom.length; i++) {
+            document.querySelector(&quot;head&quot;).removeChild(descriptionDom[i])
+          }
+          resolve()
+        }).then(() =&gt; {
+          let descriptionMeta = $(&#39;&lt;meta name=&quot;description&quot; content=&quot;&#39;+ descriptionValue +&#39;&quot;&gt;&#39;).get(0)
+          document.querySelector(&quot;head&quot;).appendChild(descriptionMeta)
+        })
+      }else {
+        let descriptionMeta = $(&#39;&lt;meta name=&quot;description&quot; content=&quot;&#39;+ descriptionValue +&#39;&quot;&gt;&#39;).get(0)
+        document.querySelector(&quot;head&quot;).appendChild(descriptionMeta)
+      }
+    }
+
+    if (document.body.clientWidth &lt; 550 &amp;&amp; this.themeProperty.mobilePageSidebar !== undefined) {
+      this.mobilePageSidebar = this.themeProperty.mobilePageSidebar
+    }
+  }
+})
+&lt;/script&gt;
+
+&lt;style lang=&quot;css&quot;&gt;
+/* 从调色板中引入变量 */
+@import &#39;@vuepress/plugin-palette/palette&#39;;
+&lt;/style&gt;
+
+&lt;style lang=&quot;css&quot; src=&quot;@vuepress/plugin-palette/style&quot;&gt;&lt;/style&gt;
+</code></pre>
+<h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><p>该组件的<code>props</code>有</p>
+<pre><code class="ts"> props: {
+    showBg: {
+      type: Boolean,
+      default() {
+        return true
+      }
+    },
+    showStyleMenu: {
+      type: Boolean,
+      default() {
+        return true
+      }
+    },
+    showNavbar: {
+      type: Boolean,
+      default() {
+        return true
+      }
+    },
+    showMobileSidebar: {
+      type: Boolean,
+      default() {
+        return true
+      }
+    }
+  },
+</code></pre>
+<ul>
+<li><p>showBg</p>
+<blockquote>
+<p>是否显示背景图片</p>
+</blockquote>
+</li>
+<li><p>showStyleMenu</p>
+<blockquote>
+<p>是否显示样式菜单</p>
+</blockquote>
+</li>
+<li><p>showNavbar</p>
+<blockquote>
+<p>是否显示导航</p>
+</blockquote>
+</li>
+<li><p>showMobileSidebar</p>
+<blockquote>
+<p>是否显示手机端侧边栏</p>
+</blockquote>
+</li>
+</ul>

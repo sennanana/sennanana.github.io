@@ -1,0 +1,52 @@
+<h1 id="vuepress-plugin-bubble"><a href="#vuepress-plugin-bubble" class="headerlink" title="vuepress-plugin-bubble"></a>vuepress-plugin-bubble</h1><p>::: tip</p>
+<p>这是vuepress的一个浪漫气泡特效插件</p>
+<p>:::</p>
+<ul>
+<li>使用效果</li>
+</ul>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211122002556797.png?x-oss-process=style/pictureProcess1" alt="image-20211122002556797"></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code class="sh">npm i vuepress-plugin-bubble
+</code></pre>
+<pre><code class="js">//docs/.vuepress/config.js
+
+const { path } = require(&quot;@vuepress/utils&quot;);
+
+module.exports = {
+    //在这里配置插件
+    plugins: [
+        [
+            &#39;bubble&#39;,
+            {
+                //气泡数量 推荐0(不包括)到1之前的小数，
+                bubbleNumber: 0.14,
+
+                //气泡透明度 0到1之间的小数
+                bubbleAlpha: 0.6,
+
+                //透明度变化速度，越接近于0越好
+                alphaChangeSpeed: 0.00001,
+
+                //气泡大小，推荐0到1之间的值
+                size: 0.4,
+
+                //气泡大小变化速度 越小越好
+                sizeChangeSpeed: 0.0002,
+
+                //气泡上升速度
+                riseSpeed: 0.4,
+
+                //气泡颜色，白色rgb(255,255,255) 请传入255,255,255
+                color: &#39;255,255,255&#39;,
+
+                //该气泡盒子的z-index值，请根据你自己主题，传入适当的值，否则可能不会显示
+                zIndex: -2
+            }
+        ],
+}
+</code></pre>
+<p>当你在<code>config.js</code>文件中，使用该插件后，该插件会自动在便会自动显示</p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211122003330518.png?x-oss-process=style/pictureProcess1" alt="image-20211122003330518"></p>
+<p>图中红框内的dom节点，便是该插件自动添加的，如果你确实配置了该插件，但是在首页中，并没有显示的话，那么请f12看一下你网站的css样式，并且传入正确，合适的<code>zIndex</code>值</p>
+<p>::: tip</p>
+<p>该插件所在节点的<code>z-index</code>是通过插件配置项中的<code>zIndex</code>进行配置的</p>
+<p>:::</p>

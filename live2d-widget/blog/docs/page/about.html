@@ -1,0 +1,275 @@
+<h1 id="关于页面"><a href="#关于页面" class="headerlink" title="关于页面"></a>关于页面</h1><h2 id="社交"><a href="#社交" class="headerlink" title="社交"></a>社交</h2><p><img src="https://ooszy.cco.vin/img/blog-note/image-20211011163020328.png?x-oss-process=style/pictureProcess1" alt="image-20211011163020328"></p>
+<p>这个需要在<code>socials</code>进行设置，设置和首页一样</p>
+<pre><code class="js">module.exports = {
+
+    themeConfig: {
+        socials: []
+    }
+}
+</code></pre>
+<h2 id="关于列表"><a href="#关于列表" class="headerlink" title="关于列表"></a>关于列表</h2><p>关于列表是一个一个的</p>
+<p><img src="http://ooszy.cco.vin/img/blog-note/image-20210831194455529.png?x-oss-process=style/pictureProcess1" alt="image-20210831194455529"></p>
+<p><img src="http://ooszy.cco.vin/img/blog-note/image-20210831194509894.png?x-oss-process=style/pictureProcess1" alt="image-20210831194509894"></p>
+<p>在<code>readme.md</code>中，通过<code>about</code>项进行更改，<code>about</code>是一个数组对象，此对象格式有两种形式</p>
+<pre><code class="js">{
+    bar: false,
+    title: &#39;&#39;,
+    describe: [],
+    tag: [],
+    showTag: true
+},
+{
+    bar: true,
+    title: &#39;技  能&#39;,
+    describe: [
+      {
+        name: &#39;java&#39;,
+        score: 70
+      },
+    ],
+    showTag: false
+},
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>对象名</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bar</td>
+<td>true or false</td>
+<td>true表示describe数组，以条形的形式展示，否则以li方式显示</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>此列表的标题，如我?，技能…</td>
+</tr>
+<tr>
+<td>describe</td>
+<td>数组</td>
+<td>描述</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>数组</td>
+<td>此个人说明项的标签</td>
+</tr>
+<tr>
+<td>showTag</td>
+<td>true or false</td>
+<td>true开启tag,false不会显示tag</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>只有bar为true时有效，每个bar的标签</td>
+</tr>
+<tr>
+<td>score</td>
+<td>数组(0-100)</td>
+<td>只有bar为true时有效，每个bar的占比</td>
+</tr>
+</tbody></table>
+<h3 id="全部配置"><a href="#全部配置" class="headerlink" title="全部配置"></a>全部配置</h3><pre><code class="js">module.exports = {
+
+    themeConfig: {
+        about: [
+            {
+                bar: false,
+                title: &quot;我?&quot;,
+                describe: [
+                    &quot;目前是一名大三学生,CS专业,坐标西南边陲&quot;,
+                    &quot;喜欢安静,不喜社交&quot;,
+                    &quot;喜欢听音乐,什么类型都可&quot;,
+                    &quot;喜欢技术,coding&quot;,
+                    &quot;目前正在学习java后端&quot;,
+                    &#39;最喜欢的电影是&quot;忠犬八公的故事&quot;,梦想以后独居也能有一只&quot;Hachi&quot;&#39;,
+                    &quot;主题是我自己开发的，前端太菜了，如果有bug，希望大家多多包涵`Σ(￣□￣||)` &quot;,
+                    &quot;有点懒&quot;,
+                    &quot;目前除了编程没有什么兴趣爱好&quot;,
+                    &quot;正在追的番有《百妖谱》,《致不灭的你》,《少年歌行》,《鬼灭之刃》,《关于我转生变成史莱姆这档事》...&quot;,
+                    &quot;喜欢小说，喜欢的作者是--十月流年，最喜欢的小说《至尊修罗》,《一念永恒》,《星辰变》&quot;,
+                ],
+                tag: [
+                    &quot;coding&quot;,
+                    &quot;社恐&quot;,
+                    &quot;番剧&quot;,
+                    &quot;电影&quot;,
+                    &quot;安静&quot;,
+                    &quot;音乐&quot;,
+                    &quot;小说&quot;,
+                    &quot;宅&quot;,
+                    &quot;懒&quot;,
+                ],
+                showTag: true,
+            },
+            {
+                bar: false,
+                title: &quot;大三规划&quot;,
+                describe: [
+                    &quot;做项目&quot;,
+                    &quot;软考二级&quot;,
+                    &quot;英语四级&quot;,
+                    &quot;想找实习&quot;,
+                    &quot;复习数据结构&quot;,
+                    &quot;驾照&quot;,
+                    &quot;做点什么有意义的事&quot;,
+                ],
+                tag: [&quot;大家加油呀`Σ(￣□￣||)` ...&quot;],
+                showTag: true,
+            },
+            {
+                bar: false,
+                title: &quot;未来规划&quot;,
+                describe: [&quot;后端工程师&quot;, &quot;赚money&quot;],
+                tag: [&quot;忘记过去，展望未来&quot;],
+                showTag: true,
+            },
+            {
+                bar: true,
+                title: &quot;技  能&quot;,
+                describe: [
+                    {
+                        name: &quot;java&quot;,
+                        score: 70,
+                    },
+                    {
+                        name: &quot;HTML5&quot;,
+                        score: 87,
+                    },
+                    {
+                        name: &quot;javascript&quot;,
+                        score: 82,
+                    },
+                    {
+                        name: &quot;css&quot;,
+                        score: 73,
+                    },
+                    {
+                        name: &quot;python&quot;,
+                        score: 50,
+                    },
+                    {
+                        name: &quot;redis&quot;,
+                        score: 59,
+                    },
+                    {
+                        name: &quot;mysql&quot;,
+                        score: 82,
+                    },
+                    {
+                        name: &quot;vue&quot;,
+                        score: 60,
+                    },
+                    {
+                        name: &quot;spring&quot;,
+                        score: 71,
+                    },
+                    {
+                        name: &quot;springMVC&quot;,
+                        score: 77,
+                    },
+                    {
+                        name: &quot;springBoot&quot;,
+                        score: 71,
+                    },
+                ],
+                showTag: false,
+            },
+
+            {
+                showTag: false,
+                bar: true,
+                title: &quot;掌握框架&quot;,
+                describe: [
+                    {
+                        name: &quot;spring&quot;,
+                        score: 79,
+                    },
+                    {
+                        name: &quot;springMVC&quot;,
+                        score: 81,
+                    },
+                    {
+                        name: &quot;springBoot&quot;,
+                        score: 82,
+                    },
+                    {
+                        name: &quot;mybatis&quot;,
+                        score: 82,
+                    },
+                    {
+                        name: &quot;vue&quot;,
+                        score: 60,
+                    },
+                    {
+                        name: &quot;dubbo&quot;,
+                        score: 61,
+                    },
+                ],
+            },
+            {
+                bar: true,
+                showTag: false,
+                title: &quot;掌握技能&quot;,
+                describe: [
+                    {
+                        name: &quot;jetbrains&quot;,
+                        score: 75,
+                    },
+                    {
+                        name: &quot;linux&quot;,
+                        score: 68,
+                    },
+                    {
+                        name: &quot;git&quot;,
+                        score: 78,
+                    },
+                    {
+                        name: &quot;Ctrl C V&quot;,
+                        score: 100,
+                    },
+                ],
+            },
+            {
+                title: &quot;关于主题&quot;,
+                describe: [
+                    &quot;theme-ccds主题是我自己独立开发，是一款基于vuepress，对默认主题进行了大量修改，我以前使用的是wordpress的博客主题，但是我对PHP不了解，想改成自己想要的主题，太难了，最近在学vue，正好看到可以使用vuepress来搭建 博客，就将默认主题改成现在这个样，并且喜欢vuepress的最主要原因是，它可以 直接将本地的markdown文档进行编译部署，我原来博客，我记了几个月的笔记，不太想再慢慢从本地复制到WordPress进行发布，以至于博客几个月没有发布文章了，虽然有技术可以解决，但还是喜欢vuepress，简直是懒癌福音，如果你喜欢的话，可以在我的GitHub进行下载，使用文档可以查看https://theme-ccds.cco.vin，该主题已将所有的配置进行抽离，你现在看到的所有信息，都抽离在了一个配置文件中，但是目前还并不能做到开箱即用，如果使用的人多了，我可以进行修改，并且我自己也写了几个组件，包括文章页面看到的顶部图片，友情链接，海报分享功能等等 ，可以在你想使用的地方，直接使用这些组件就可以，该主题我加入了vuex，对前端不太了解，有很多css不对的地方，请大家多多包涵，Thanks♪(･ω･)ﾉ&quot;,
+                ],
+            },
+            {
+                bar: false,
+                title: &quot;更新日志&quot;,
+                describe: [
+                    &quot;开发永不止步......&quot;,
+                    &quot;2021.9.12 增加相册功能，解决已知bug&quot;,
+                    &quot;2021.9.9 增加海报分享功能&quot;,
+                    &quot;2021.9.5 重新修改文章SEO自动配置，使用新规则，解决从tag页面进入文章页面，懒加载失效问题&quot;,
+                    &quot;2021.9.4 重新初始化仓库&quot;,
+                    &quot;2.21.8.10 -- 2021.9 主题开发&quot;,
+                ],
+                tag: [&#39;想求个star`(⌒▽⌒)`&#39;],
+                showTag: true,
+            },
+            {
+                title: &quot;主题后续计划及闲话&quot;,
+                bar: false,
+                tag: [],
+                showTag: false,
+                describe: [
+                    &quot;为说说页面增加随时发布，随时修改功能&quot;,
+                    &quot;增加每日计划打卡功能&quot;,
+                ],
+            },
+        ],
+    }
+}
+</code></pre>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p><img src="http://ooszy.cco.vin/img/blog-note/image-20210831195631982.png?x-oss-process=style/pictureProcess1" alt="image-20210831195631982"></p>
+<p>颜色不支持更改，随机，从<code>randomColor</code>中随机选择</p>
+<h2 id="bar"><a href="#bar" class="headerlink" title="bar"></a>bar</h2><p><img src="http://ooszy.cco.vin/img/blog-note/image-20210831195817530.png?x-oss-process=style/pictureProcess1" alt="image-20210831195817530"></p>
+<h2 id="友情链接页面配置"><a href="#友情链接页面配置" class="headerlink" title="友情链接页面配置"></a>友情链接页面配置</h2><p><a href="./friendlink.md">友情链接</a></p>

@@ -1,0 +1,23 @@
+<hr>
+<h2 id="tag-评论配置"><a href="#tag-评论配置" class="headerlink" title="tag: [评论配置]"></a>tag: [评论配置]</h2><h1 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h1><p>::: tip </p>
+<p>Aurora主题加入了评论，使用<a href="https://waline.js.org/">Waline | Waline</a>集成评论，Valine是一款基于 Valine 衍生的简洁、安全的评论系统。</p>
+<p>:::</p>
+<h2 id="获取serverURL"><a href="#获取serverURL" class="headerlink" title="获取serverURL"></a>获取serverURL</h2><p>请移步到Waline官网，根据他们的教程，获取serverURL</p>
+<p><a href="https://waline.js.org/guide/get-started.html#leancloud-%E8%AE%BE%E7%BD%AE-%E6%95%B0%E6%8D%AE%E5%BA%93">快速上手 | Waline</a></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>在配置文件<code>config.js</code>文件中，</p>
+<pre><code class="js">module.exports = {
+
+    themeConfig: {
+        comment: {
+            //是否显示评论
+            showComment: true,
+            serverURL: &#39;上一步得到的serverURL地址&#39;,
+        },
+    }
+}
+</code></pre>
+<p>关于评论的详细配置项，请看<a href="https://waline.js.org/guide/get-started.html#leancloud-%E8%AE%BE%E7%BD%AE-%E6%95%B0%E6%8D%AE%E5%BA%93">快速上手 | Waline</a>，目前主题集成上述项配置，如需Waline其他的配置项，请自行克隆<a href="https://github.com/vuepress-aurora/vuepress-theme-aurora">主题源码</a>进行更改，评论组件位置<code>docs/.vuepress/theme/lib/client/components/global/Comment.vue</code>,所有的配置都是在<code>docs/readme.md</code>中进行配置</p>
+<blockquote>
+<p>所有评论配置项，必须放在<code>comment</code>对象中</p>
+</blockquote>
+<h2 id="组件使用"><a href="#组件使用" class="headerlink" title="组件使用"></a>组件使用</h2><p><code>Comment</code>是一个全局组件，目前默认只在关于页面，文章页面以及友情链接页面进行使用，如果在其他页面使用，可以直接<code>&lt;Comment/&gt;</code></p>

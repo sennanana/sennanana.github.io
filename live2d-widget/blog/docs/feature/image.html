@@ -1,0 +1,102 @@
+<h1 id="顶部图片"><a href="#顶部图片" class="headerlink" title="顶部图片"></a>顶部图片</h1><p>顶部图片是一个全局组件，可以直接使用，位置<code>docs/.vuepress/theme/lib/client/components/global/TopImage.vue</code></p>
+<h2 id="设置图片地址"><a href="#设置图片地址" class="headerlink" title="设置图片地址"></a>设置图片地址</h2><p>从v1.3.2版本开始，便加入了定制顶部图片的选项，你可以使用随机图片接口，也可以使用自己的图片地址</p>
+<h3 id="使用随机图片接口"><a href="#使用随机图片接口" class="headerlink" title="使用随机图片接口"></a>使用随机图片接口</h3><pre><code class="js">module.exports = {
+
+    themeConfig: {
+        //首页文章列表封面图api接口
+        homePageImgApi: &quot;https://api.ixiaowai.cn/api/api.php&quot;,
+    }
+}
+</code></pre>
+<p>::: tip</p>
+<p>首页文章列表图片和文章，标签等顶部图片共同使用一个图片api接口</p>
+<p>:::</p>
+<h3 id="使用自己的图片"><a href="#使用自己的图片" class="headerlink" title="使用自己的图片"></a>使用自己的图片</h3><blockquote>
+<p><code>主题默认使用的是随机图片，如果你想改成自己的图片的话，那么需要开启此功能</code></p>
+</blockquote>
+<pre><code class="js">module.exports = {
+
+    themeConfig: {
+        //自定义顶部图片
+        customTopImg: {
+            //是否启用定制顶部图片，控制全局，如果关闭，那么将使用随机图片，随机图片接口可以自己设置
+            custom: true,
+
+            //文章顶部图片，数组，每次从数组中随机选择一张
+            page: [
+                &quot;https://picoss.cco.vin/animate/wall/555260.png&quot;,
+                &#39;https://picoss.cco.vin/animate/wall/404901.png&#39;,
+                &#39;https://picoss.cco.vin/animate/wall/734386.png&#39;
+            ],
+            //友情链接页面
+            friend: [
+                &quot;https://picoss.cco.vin/animate/wall/669.png&quot;,
+                &#39;https://picoss.cco.vin/animate/wall/5332.png&#39;
+            ],
+            //标签页面
+            tag: [
+                &quot;https://picoss.cco.vin/animate/wall/763311.png&quot;
+            ],
+            //心情页面
+            mood: [
+                &quot;https://picoss.cco.vin/animate/wall/5849.png&quot;
+            ],
+        },
+    }
+}
+</code></pre>
+<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="vue">&lt;template&gt;
+  &lt;div v-if=&quot;isShowTopImg&quot; :style=&quot;setBackgroundUrl&quot; id=&quot;page-top&quot;&gt;
+    &lt;div v-if=&quot;isShowHeadLine&quot;&gt;
+      &lt;h1&gt;{{headLine}}&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><pre><code class="js">props: {
+    isShowTopImg: {
+      type: Boolean,
+      default() {
+        return false
+      }
+    },
+    isShowHeadLine: {
+      type: Boolean,
+      default() {
+        return false
+      }
+    },
+    headLine: {
+      type: String,
+      default() {
+        return &quot;&quot;;
+      }
+    }
+  }
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>props</th>
+<th align="center">des</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>isShowTopImg</td>
+<td align="center">是否展示顶部图片</td>
+</tr>
+<tr>
+<td>isShowHeadLine</td>
+<td align="center">是否展示标题，针对于文章页面</td>
+</tr>
+<tr>
+<td>headLine</td>
+<td align="center">标题名称</td>
+</tr>
+</tbody></table>
+<h2 id="额外使用组件"><a href="#额外使用组件" class="headerlink" title="额外使用组件"></a>额外使用组件</h2><p>如需在自己需要的地方使用，可以通过下面方式，传入对应值就行</p>
+<pre><code class="vue">&lt;top-image :is-show-top-img=&quot;...&quot;
+           :is-show-head-line=&quot;...&quot;
+           :head-line=&quot;.&quot;/&gt;
+</code></pre>
+<h2 id="海报功能配置"><a href="#海报功能配置" class="headerlink" title="海报功能配置"></a>海报功能配置</h2><p><a href="./poster.md">海报功能配置</a></p>

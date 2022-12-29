@@ -1,0 +1,29 @@
+<h1 id="文章配置"><a href="#文章配置" class="headerlink" title="文章配置"></a>文章配置</h1><h2 id="侧标栏"><a href="#侧标栏" class="headerlink" title="侧标栏"></a>侧标栏</h2><p>侧边栏是自动生成的，你可以更改自动生成的规则</p>
+<pre><code class="js">//文章侧边栏自动获取的层次 默认为1，也就是http://localhost:8080/config/feature/donate.html,只会自动生成feature目录下的文件
+sidebarCatalogLevel: 1,
+</code></pre>
+<h2 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h2><p>图片懒加载有默认值，但是你也可以自己指定</p>
+<pre><code class="js">module.exports = {
+    themeConfig: {
+        //文章懒加载图片 仅限文章，首页文章占位图片并不是这个
+        lazyLoadingImg: &quot;https://ooszy.cco.vin/img/blog-public/ljz.gif&quot;,
+    }
+}
+</code></pre>
+<h2 id="文章推荐"><a href="#文章推荐" class="headerlink" title="文章推荐"></a>文章推荐</h2><p>文章推荐设置可以查看</p>
+<pre><code class="js">//文章底部最大推荐文章数 默认值为30
+recommendPageLength: 30,
+
+//推荐列表标题为空时，就会使用这个进行代替，默认是`╮(￣▽￣)╭`
+recommendNoTitle: &quot;`╮(￣▽￣)╭`&quot;,
+</code></pre>
+<h2 id="edit"><a href="#edit" class="headerlink" title="edit"></a>edit</h2><p><a href="https://v2.vuepress.vuejs.org/zh/reference/default-theme/config.html#editlink">点击</a>查看vuepress的editlink设置</p>
+<h2 id="最后更新时间"><a href="#最后更新时间" class="headerlink" title="最后更新时间"></a>最后更新时间</h2><p><a href="https://v2.vuepress.vuejs.org/zh/reference/default-theme/config.html#lastupdated">点击</a>查看vuepress的lastupdated设置</p>
+<h2 id="贡献者"><a href="#贡献者" class="headerlink" title="贡献者"></a>贡献者</h2><p><a href="https://v2.vuepress.vuejs.org/zh/reference/default-theme/config.html#contributors">点击</a>查看vuepress的contributors设置</p>
+<h2 id="上一页，下一页"><a href="#上一页，下一页" class="headerlink" title="上一页，下一页"></a>上一页，下一页</h2><p><img src="https://ooszy.cco.vin/img/blog-note/image-20211021085208081.png?x-oss-process=style/pictureProcess1" alt="image-20211021085208081"></p>
+<p>上一页，下一页会自动获取，并不能在<code>frontmatter</code>中，指定下一页，上一页，往后版本会增加</p>
+<h2 id="赞赏功能"><a href="#赞赏功能" class="headerlink" title="赞赏功能"></a>赞赏功能</h2><p><a href="../feature/donate.md">赞赏配置</a></p>
+<h2 id="SEO配置"><a href="#SEO配置" class="headerlink" title="SEO配置"></a>SEO配置</h2><p><a href="../feature/seo.md">seo</a></p>
+<h2 id="文章推荐-1"><a href="#文章推荐-1" class="headerlink" title="文章推荐"></a>文章推荐</h2><p><a href="../feature/recommend.md">文章推荐</a></p>
+<h2 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h2><p><a href="../comment/">评论</a></p>
+<h2 id="页脚"><a href="#页脚" class="headerlink" title="页脚"></a>页脚</h2><p><a href="../footer.md">页脚</a></p>

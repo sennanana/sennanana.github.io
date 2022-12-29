@@ -1,0 +1,38 @@
+<h1 id="文章推荐"><a href="#文章推荐" class="headerlink" title="文章推荐"></a>文章推荐</h1><p>此组件并不是全局组件，组件位置<code>docs/.vuepress/theme/lib/client/components/RecommendPage.vue</code></p>
+<p><img src="http://ooszy.cco.vin/img/blog-note/image-20210831161503804.png?x-oss-process=style/pictureProcess1" alt="image-20210831161503804"></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><pre><code class="js">module.exports = {
+
+    themeConfig: {
+        recommendPageLength: 30 //最多推荐多少篇文章
+        randomColor: [&#39;#ffcad4&#39;,&#39;#d8e2dc&#39;,&#39;#8d99ae&#39;,&#39;#b8f2e6&#39;,&#39;#84c7d0&#39;] //每个推荐背景颜色，随机
+    recommendNoTitle: &#39;`╮(￣▽￣)╭`&#39; //文章标题为空时，就会使用这个进行替换
+    }
+}
+</code></pre>
+<p>推荐的文章是随机的，并不能指定</p>
+<h2 id="组件代码"><a href="#组件代码" class="headerlink" title="组件代码"></a>组件代码</h2><pre><code class="vue">&lt;template&gt;
+  &lt;BCenter&gt;
+    &lt;template #page-center1&gt;
+      &lt;h2 id=&quot;recommend-top-title&quot;&gt;推荐阅读&lt;/h2&gt;
+    &lt;/template&gt;
+    &lt;template #page-center3&gt;
+      &lt;div id=&quot;recommend&quot; class=&quot;recommend&quot;&gt;
+        &lt;recommend-item
+            :item=&quot;item&quot;
+            :key=&quot;index&quot;
+            :theme-property=&quot;themeProperty&quot;
+            :index=&quot;index&quot;
+            v-for=&quot;(item,index) in allPages&quot;/&gt;
+      &lt;/div&gt;
+    &lt;/template&gt;
+  &lt;/BCenter&gt;
+&lt;/template&gt;
+</code></pre>
+<p>其中<code>&lt;BCenter&gt;</code>组件是一个全局组件，其就是一个居中效果的，展示效果和下图差不多</p>
+<p><img src="http://ooszy.cco.vin/img/blog-note/image-20210831161059607.png?x-oss-process=style/pictureProcess1" alt="image-20210831161059607"></p>
+<p>提供了很多插槽</p>
+<h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><pre><code class="js">props: {
+    themeProperty: null
+}
+</code></pre>
+<h2 id="搜索功能配置"><a href="#搜索功能配置" class="headerlink" title="搜索功能配置"></a>搜索功能配置</h2><p><a href="./search.md">搜索功能配置</a></p>

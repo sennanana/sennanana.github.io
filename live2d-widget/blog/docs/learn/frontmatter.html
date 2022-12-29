@@ -1,0 +1,88 @@
+<h1 id="Front-Matter"><a href="#Front-Matter" class="headerlink" title="Front Matter"></a>Front Matter</h1><p>在开始之前，你可以先读一读官方对于<a href="https://v1.vuepress.vuejs.org/zh/guide/frontmatter.html">frontmatter</a>的介绍，更有助于你的理解及使用</p>
+<p>::: tip</p>
+<p><code>FrontMatter</code>是写在md文件中，并且<code>在每篇md的最顶部，使用---包裹</code>起来的一种形式，使用的是<code>yaml</code>语法，你可以像下面这样</p>
+<pre><code class="markdown">---
+date: &quot;2021/111/27&quot; #手动设置此篇文章发布时间
+tag: [tag1,tag2] #设置此篇文章的标签
+categories: [cate1,cate2,cate3] #设置此篇文章的类别
+keyword: key1,key2 #设置此篇文章的关键词
+description: 这是一个描述 #设置此篇文章的描述
+sticky: true #是否置顶该篇文章
+coverUrl: &quot;https://aurora.xcye.xyz/avatar.jpg&quot; #设置封面图
+title: 这是第一篇文章 # 设置标题
+---
+</code></pre>
+<p>:::</p>
+<p>上面这些是<code>aurora</code>主题自己加上的，你也可以加入官方的一些设置，下面这些都是官方的，并且在该主题中，基本上都支持</p>
+<h2 id="官方预定义变量"><a href="#官方预定义变量" class="headerlink" title="官方预定义变量"></a>官方预定义变量</h2><h3 id="title"><a href="#title" class="headerlink" title="title"></a>title</h3><ul>
+<li>类型: <code>string</code></li>
+<li>默认值: <code>h1_title || siteConfig.title</code></li>
+</ul>
+<p>当前页面的标题。</p>
+<h3 id="lang"><a href="#lang" class="headerlink" title="lang"></a>lang</h3><ul>
+<li>类型: <code>string</code></li>
+<li>默认值: <code>en-US</code></li>
+</ul>
+<p>当前页面的语言。</p>
+<h3 id="description"><a href="#description" class="headerlink" title="description"></a>description</h3><ul>
+<li>类型: <code>string</code></li>
+<li>默认值: <code>siteConfig.description</code></li>
+</ul>
+<p>当前页面的描述。</p>
+<h3 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h3><ul>
+<li>类型: <code>string</code></li>
+<li>默认值: <code>Layout</code></li>
+</ul>
+<p>设置当前页面的布局组件。</p>
+<h3 id="permalink"><a href="#permalink" class="headerlink" title="permalink"></a>permalink</h3><ul>
+<li>类型: <code>string</code></li>
+<li>默认值: <code>siteConfig.permalink</code></li>
+</ul>
+<p>参考: <a href="./permalinks.md">Permalinks</a>.</p>
+<h3 id="metaTitle"><a href="#metaTitle" class="headerlink" title="metaTitle"></a>metaTitle</h3><ul>
+<li>类型: <code>string</code></li>
+<li>默认值: <code>`${page.title} | ${siteConfig.title}`</code></li>
+</ul>
+<p>重写默认的 meta title。</p>
+<h3 id="meta"><a href="#meta" class="headerlink" title="meta"></a>meta</h3><ul>
+<li>类型: <code>array</code></li>
+<li>默认值: <code>undefined</code></li>
+</ul>
+<p>指定额外的要注入的 meta 标签：</p>
+<pre><code class="yaml">---
+meta:
+  - name: description
+    content: hello
+  - name: keywords
+    content: super duper SEO
+---
+</code></pre>
+<h2 id="默认主题的预定义变量"><a href="#默认主题的预定义变量" class="headerlink" title="默认主题的预定义变量"></a>默认主题的预定义变量</h2><h3 id="navbar"><a href="#navbar" class="headerlink" title="navbar"></a>navbar</h3><ul>
+<li>类型: <code>boolean</code></li>
+<li>默认值: <code>undefined</code></li>
+</ul>
+<p>参考: <a href="../theme/default-theme-config.md#%E7%A6%81%E7%94%A8%E5%AF%BC%E8%88%AA%E6%A0%8F">默认主题配置 &gt; 禁用导航栏</a>。</p>
+<h3 id="sidebar"><a href="#sidebar" class="headerlink" title="sidebar"></a>sidebar<Badge type="tip" text="不支持" vertical="top" /></h3><ul>
+<li>类型: <code>boolean|&#39;auto&#39;</code></li>
+<li>默认值: <code>undefined</code></li>
+</ul>
+<p>参考: <a href="../theme/default-theme-config.md#%E4%BE%A7%E8%BE%B9%E6%A0%8F">默认主题配置 &gt; 侧边栏</a>。</p>
+<h3 id="prev"><a href="#prev" class="headerlink" title="prev"></a>prev<Badge type="tip" text="不支持" vertical="top" /></h3><ul>
+<li>类型: <code>boolean|string</code></li>
+<li>默认值: <code>undefined</code></li>
+</ul>
+<p>参考: <a href="../theme/default-theme-config.md#%E4%B8%8A-%E4%B8%8B%E4%B8%80%E7%AF%87%E9%93%BE%E6%8E%A5">默认主题配置 &gt; 上 / 下一篇链接</a>。</p>
+<h3 id="next"><a href="#next" class="headerlink" title="next"></a>next<Badge type="tip" text="不支持" vertical="top" /></h3><ul>
+<li>类型: <code>boolean|string</code></li>
+<li>默认值: <code>undefined</code></li>
+</ul>
+<p>参考: <a href="../theme/default-theme-config.md#%E4%B8%8A-%E4%B8%8B%E4%B8%80%E7%AF%87%E9%93%BE%E6%8E%A5">默认主题配置 &gt; 上 / 下一篇链接</a>。</p>
+<h3 id="search"><a href="#search" class="headerlink" title="search"></a>search</h3><ul>
+<li>类型: <code>boolean</code></li>
+<li>默认值: <code>undefined</code></li>
+</ul>
+<p>参考: <a href="../theme/default-theme-config.md#%E5%86%85%E7%BD%AE%E6%90%9C%E7%B4%A2">默认主题配置 &gt; 内置搜索</a>。</p>
+<h3 id="tags"><a href="#tags" class="headerlink" title="tags"></a>tags</h3><ul>
+<li>类型: <code>array</code></li>
+<li>默认值: <code>undefined</code></li>
+</ul>

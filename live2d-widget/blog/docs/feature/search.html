@@ -1,0 +1,22 @@
+<h1 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h1><p>搜索功能请移步至<a href="https://v2.vuepress.vuejs.org/zh/reference/plugin/search.html#issearchable">vuepress官网</a>，安装此<code>@vuepress/plugin-search</code>插件时，请确保插件版本为<code>2.0.0-beta.25</code>或以上</p>
+<p>也可以直接运行下面命令</p>
+<pre><code class="shell">npm i @vuepress/plugin-search@2.0.0-beta.25
+</code></pre>
+<p>当你安装完成之后，在<code>docs/config.js</code>内进行下面配置便可以</p>
+<pre><code class="js">module.exports = {
+    plugins: [
+        &quot;@vuepress/plugin-search&quot;,
+        {
+            locales: {
+                &quot;/&quot;: {
+                    placeholder: &quot;Search&quot;,
+                },
+                &quot;/zh/&quot;: {
+                    placeholder: &quot;搜索&quot;,
+                },
+            },
+        },
+    ],
+};
+</code></pre>
+<h2 id="seo配置"><a href="#seo配置" class="headerlink" title="seo配置"></a>seo配置</h2><p><a href="./seo.md">seo配置</a></p>

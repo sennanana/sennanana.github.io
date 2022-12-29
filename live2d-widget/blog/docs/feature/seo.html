@@ -1,0 +1,24 @@
+<h1 id="SEO"><a href="#SEO" class="headerlink" title="SEO"></a>SEO</h1><p>主题已对搜索引擎进行初步优化，主要就是自动设置关键词和描述，如果想要更深入的SEO优化，请自行解决</p>
+<h2 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h2><p>首页的<code>description</code>和<code>keyword</code>通过以下修改，在<code>readme.md</code>文件中，不推荐在<code>config.js</code>中进行修改</p>
+<pre><code class="js">module.exports = {
+
+    themeConfig: {
+        description: &#39;qsyyke的个人博客，记录生活琐事，学习笔记&#39;,
+        keyword: &#39;vuepress主题,vuepress theme,生活琐事,二次元博客,简约博客,博客主题,静态主题&#39;
+    }
+}
+</code></pre>
+<h2 id="文章页面"><a href="#文章页面" class="headerlink" title="文章页面"></a>文章页面</h2><p>对于文章页面，你可以通过<code>frontmatter</code>语法在每个<code>.md</code>文件上进行修改，可以参照官方<a href="https://v2.vuepress.vuejs.org/zh/reference/config.html#description">description</a></p>
+<pre><code class="yaml">---
+description: 这是一个测试description项
+keyword: key1,key2,key3,key4,key5
+---
+</code></pre>
+<ul>
+<li>description: String</li>
+<li>keyword: 数组</li>
+</ul>
+<p>如果你没有在该<code>.md</code>文件中，没有对description或者keyword进行修改，那么默认通过获取当前文章的部分h2标签和部分p标签内容进行组合</p>
+<p>description字符默认为<code>1220</code>，暂未在<code>config.js</code>中提供修改</p>
+<p>keyword字符默认为90</p>
+<h2 id="社交信息配置"><a href="#社交信息配置" class="headerlink" title="社交信息配置"></a>社交信息配置</h2><p><a href="./social.md">社交信息配置</a></p>

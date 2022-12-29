@@ -1,0 +1,27 @@
+<h1 id="归档"><a href="#归档" class="headerlink" title="归档"></a>归档</h1><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p><img src="http://ooszy.cco.vin/img/blog-note/image-20210831201338288.png?x-oss-process=style/pictureProcess1" alt="image-20210831201338288"></p>
+<p>通过在每篇md文件上，添加<code>frontMatter</code>进行设置文章标签和类别，格式为</p>
+<pre><code class="markdown">---
+categories: [vue,前端,分类] # 设置类别
+tag: [tag1,tag2,tag3] #设置标签
+---
+</code></pre>
+<p><code>categories,tag</code>是一个数组，设置之后，请重新启动，否则不会生效</p>
+<h2 id="类别"><a href="#类别" class="headerlink" title="类别"></a>类别</h2><p><img src="http://ooszy.cco.vin/img/blog-note/image-20210831201350855.png?x-oss-process=style/pictureProcess1" alt="image-20210831201350855"></p>
+<p>类别是通过对文章path路径，进行分割选取的，如果一个path路径为</p>
+<pre><code>/spring/springmvc/springmvc重定向和请求转发操作.html#请求转发
+</code></pre>
+<p>那么此篇文章的类别就有<code>spring,springmvc</code>，同时，你也可以禁用将此篇文章的文件夹包含在类别中，禁用下面这个配置，便可以了</p>
+<pre><code class="js">//config.js
+//类别项是否包含文件夹名，默认包含
+categoriesIncludeFolderName: true,
+</code></pre>
+<h3 id="排除某个类别"><a href="#排除某个类别" class="headerlink" title="排除某个类别"></a>排除某个类别</h3><p>你也可以配置<code>excludePath</code>值，那个在excludePath数组中的路径的文件夹，就不会被包含在类别中，同时该路径所对应的文章，你在首页也将看不到，但是你可以通过<code>/xxx.md</code>进行访问</p>
+<pre><code class="js">//在统计文章，标签，类别的时候，需要排除的路径，只针对于根目录下的路径，
+excludePath: [&#39;/footer.html&#39;,&#39;/v1.3.0/&#39;,&#39;/plugin/&#39;],
+</code></pre>
+<p>只支持排除在<code>docs</code>根目录下的md文件以及在<code>docs</code>子目录中，可以直接通过<code>/xxx/xxx/xxx/</code>进行访问的路径，其他的不支持</p>
+<h2 id="分割符"><a href="#分割符" class="headerlink" title="分割符"></a>分割符</h2><p><img src="http://ooszy.cco.vin/img/blog-note/image-20210831202338204.png?x-oss-process=style/pictureProcess1" alt="image-20210831202338204"></p>
+<p>此分割符可以通过<code>split</code>项进行设置</p>
+<pre><code class="js">split: &quot;~&quot;
+</code></pre>
+<h2 id="文章页面配置"><a href="#文章页面配置" class="headerlink" title="文章页面配置"></a>文章页面配置</h2><p><a href="./page.md">文章页面配置</a></p>

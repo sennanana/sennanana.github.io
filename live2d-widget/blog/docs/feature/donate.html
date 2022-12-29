@@ -1,0 +1,179 @@
+<h1 id="赞赏"><a href="#赞赏" class="headerlink" title="赞赏"></a>赞赏</h1><p>该组件 是一个全局组件，位置<code>docs/.vuepress/theme/lib/client/components/global/Donate.vue</code></p>
+<p><img src="http://ooszy.cco.vin/img/blog-note/image-20210831164021528.png?x-oss-process=style/pictureProcess1" alt="image-20210831164021528"></p>
+<img src="http://ooszy.cco.vin/img/blog-note/image-20210831164036678.png?x-oss-process=style/pictureProcess1" alt="image-20210831164036678" style="zoom:50%;" />
+
+
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="扫码支付"><a href="#扫码支付" class="headerlink" title="扫码支付"></a>扫码支付</h3><img src="http://ooszy.cco.vin/img/blog-note/image-20210831164324595.png?x-oss-process=style/pictureProcess1" style="zoom:50%;" />
+
+<pre><code class="js">module.exports = {
+
+    themeConfig: {
+        donate: {
+            donateImg: [
+                &quot;https://ooszy.cco.vin/img/blog-public/wxpay.png&quot;,
+                &quot;https://ooszy.cco.vin/img/blog-public/zfbpay.jpg&quot;,
+            ],
+        }
+    }
+}
+</code></pre>
+<p>推荐传入两张二维码图片，支付宝或者位置</p>
+<h3 id="商品"><a href="#商品" class="headerlink" title="商品"></a>商品</h3><img src="http://ooszy.cco.vin/img/blog-note/image-20210831164526261.png?x-oss-process=style/pictureProcess1" alt="image-20210831164526261" style="zoom:50%;" />
+
+<pre><code class="yaml">module.exports = {
+
+    themeConfig: {
+        donate: {
+            donateProduct: [
+                {
+                    //名字
+                    name: &quot;奶茶&quot;,
+
+                    //图片地址
+                    img: &quot;https://ooszy.cco.vin/img/blog-public/nc.jpeg&quot;,
+
+                    //价格
+                    price: 18,
+
+                    //前缀
+                    prefix: &quot;$&quot;,
+                },
+                {
+                    name: &quot;全味奶茶&quot;,
+                    img: &quot;https://ooszy.cco.vin/img/blog-note/image-20210911233612031.png?&quot;,
+                    price: 11,
+                    prefix: &quot;￥&quot;,
+                },
+            ],
+        }
+    }
+}
+</code></pre>
+<h3 id="赞赏列表"><a href="#赞赏列表" class="headerlink" title="赞赏列表"></a>赞赏列表</h3><img src="http://ooszy.cco.vin/img/blog-note/image-20210831164718349.png?x-oss-process=style/pictureProcess1" alt="image-20210831164718349" style="zoom:50%;" />
+
+<pre><code class="yaml">module.exports = {
+
+    themeConfig: {
+        donate: {
+            //用户赞赏列表数组
+            donateList: [
+                {
+                    //用户名
+                    name: &quot;qsyyke&quot;,
+
+                    //赞赏信息
+                    msg: &quot;文章写的非常好&quot;,
+
+                    //用户头像
+                    img: &quot;https://ooszy.cco.vin/img/blog-public/nc.jpeg&quot;,
+
+                    //打赏金额
+                    price: 11,
+
+                    //金额前缀
+                    prefix: &quot;￥&quot;,
+                },
+                {
+                    name: &quot;初尘&quot;,
+                    msg: &quot;主题太棒了&quot;,
+                    img: &quot;https://ooszy.cco.vin/img/blog-public/nc.jpeg&quot;,
+                    price: 7,
+                    prefix: &quot;￥&quot;,
+                },
+            ],
+        }
+    }
+}
+</code></pre>
+<h3 id="在线支付"><a href="#在线支付" class="headerlink" title="在线支付"></a>在线支付</h3><p><img src="http://ooszy.cco.vin/img/blog-note/image-20210831164942581.png?x-oss-process=style/pictureProcess1" alt="image-20210831164942581"></p>
+<pre><code class="js">module.exports = {
+
+    themeConfig: {
+        donate: {
+            onlineList: true
+        }
+    }
+}
+</code></pre>
+<p>对于在线支付，请自行写支付接口，我并没有提供，只是提供一个布局，组件位置docs/.vuepress/theme/lib/client/components/global/Donate.vue</p>
+<pre><code class="html">&lt;form action=&quot;https://pay.cco.vin/pay/&quot; method=&quot;post&quot;&gt;
+</code></pre>
+<h3 id="全部配置"><a href="#全部配置" class="headerlink" title="全部配置"></a>全部配置</h3><pre><code class="yaml">module.exports = {
+
+    themeConfig: {
+        donate: {
+
+            //赞赏页面，支付二维码，推荐放置两张图片链接
+            donateImg: [
+                &quot;https://ooszy.cco.vin/img/blog-public/wxpay.png&quot;,
+                &quot;https://ooszy.cco.vin/img/blog-public/zfbpay.jpg&quot;,
+            ],
+
+            //是否在文章页面显示赞赏 默认显示
+            articlePage: true,
+
+            //是否在关于页面显示 默认显示
+            aboutPage: true,
+
+            //显示在赞赏页面的信息
+            donateProduct: [
+                {
+                    //名字
+                    name: &quot;奶茶&quot;,
+
+                    //图片地址
+                    img: &quot;https://ooszy.cco.vin/img/blog-public/nc.jpeg&quot;,
+
+                    //价格
+                    price: 18,
+
+                    //前缀
+                    prefix: &quot;$&quot;,
+                },
+                {
+                    name: &quot;全味奶茶&quot;,
+                    img: &quot;https://ooszy.cco.vin/img/blog-note/image-20210911233612031.png?&quot;,
+                    price: 11,
+                    prefix: &quot;￥&quot;,
+                },
+            ],
+
+            //是否显示在线支付的订单信息，如果需要开启，请自己写支付接口，自己修改源码，默认关闭
+            onlineList: true,
+
+            //用户赞赏列表数组
+            donateList: [
+                {
+                    //用户名
+                    name: &quot;qsyyke&quot;,
+
+                    //赞赏信息
+                    msg: &quot;文章写的非常好&quot;,
+
+                    //用户头像
+                    img: &quot;https://ooszy.cco.vin/img/blog-public/nc.jpeg&quot;,
+
+                    //打赏金额
+                    price: 11,
+
+                    //金额前缀
+                    prefix: &quot;￥&quot;,
+                },
+                {
+                    name: &quot;初尘&quot;,
+                    msg: &quot;主题太棒了&quot;,
+                    img: &quot;https://ooszy.cco.vin/img/blog-public/nc.jpeg&quot;,
+                    price: 7,
+                    prefix: &quot;￥&quot;,
+                },
+            ],
+        },
+    }
+}
+</code></pre>
+<h2 id="组件代码"><a href="#组件代码" class="headerlink" title="组件代码"></a>组件代码</h2><p><a href="https://github.com/vuepress-aurora/vuepress-theme-aurora/blob/master/Aurora-theme/lib/client/components/global/Donate.vue">https://github.com/vuepress-aurora/vuepress-theme-aurora/blob/master/Aurora-theme/lib/client/components/global/Donate.vue</a></p>
+<h2 id="组件使用"><a href="#组件使用" class="headerlink" title="组件使用"></a>组件使用</h2><p>此组件是一个全局组件，可以直接使用</p>
+<pre><code class="vue">&lt;Donate/&gt;
+</code></pre>
+<h2 id="顶部图片配置"><a href="#顶部图片配置" class="headerlink" title="顶部图片配置"></a>顶部图片配置</h2><p><a href="./image.md">顶部图片配置</a></p>

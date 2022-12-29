@@ -1,0 +1,145 @@
+<h1 id="Coze组件使用"><a href="#Coze组件使用" class="headerlink" title="Coze组件使用"></a>Coze组件使用</h1><blockquote>
+<p>以下所有的组件都是全局组件</p>
+</blockquote>
+<h2 id="CozeMood"><a href="#CozeMood" class="headerlink" title="CozeMood"></a>CozeMood</h2><p>该组件是展示说说的组件，也就是下面这个页面</p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211108194504444.png?x-oss-process=style/pictureProcess1" alt="image-20211108194504444"></p>
+<h3 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h3><p>该组件当所有数据加载完成之后，会返回一个钩子函数<code>cozeSuccess</code>，你可以在你自己的主题中，使用该函数</p>
+<pre><code class="js">//Mood.vue
+&lt;CozeMood @coze-success=&quot;cozeSuccess&quot;&gt;&lt;/CozeMood&gt;
+
+methods: {
+    cozeSuccess(cozeMoodData) {
+        //数据加载完成之后返回
+    }
+}
+</code></pre>
+<h3 id="插槽"><a href="#插槽" class="headerlink" title="插槽"></a>插槽</h3><p>该组件也提供了一些插槽</p>
+<pre><code class="js">&lt;slot name=&quot;coze-mood-content&quot;&gt;&lt;/slot&gt;
+&lt;slot name=&quot;coze-img&quot;&gt;&lt;/slot&gt;
+&lt;slot name=&quot;coze-mood-bottom-left&quot;&gt;&lt;/slot&gt;
+&lt;slot name=&quot;coze-mood-bottom-right&quot;&gt;&lt;/slot&gt;
+</code></pre>
+<p>对应位置如下</p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211108202006814.png?x-oss-process=style/pictureProcess1" alt="image-20211108202006814"></p>
+<h3 id="样式变量"><a href="#样式变量" class="headerlink" title="样式变量"></a>样式变量</h3><p>如果你需要设置背景颜色等等，提供了css变量，请自行使用</p>
+<h2 id="CozeLogin"><a href="#CozeLogin" class="headerlink" title="CozeLogin"></a>CozeLogin</h2><p>该组件是一个注册，登出操作组件，不提供任何的样式，就是一个空壳，提供的目的是，你如果需要让用户登录，发布说说等，可以为用户提供注册等操作，我没有提供样式，是因为什么样式也没有，更便于你们设置其css样式</p>
+<blockquote>
+<p>该组件展示效果</p>
+</blockquote>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211110234327520.png?x-oss-process=style/pictureProcess1" alt="image-20211110234327520"></p>
+<ul>
+<li>结构</li>
+</ul>
+<pre><code class="html">&lt;!--这是一个登录注册的组件--&gt;
+&lt;div class=&quot;coze-custom-login&quot;&gt;
+    &lt;slot name=&quot;cozeCustomTop&quot;&gt;&lt;/slot&gt;
+    &lt;form v-on:submit.prevent&gt;
+        &lt;div class=&quot;coze-custom-item-common&quot;&gt;
+            &lt;input autocomplete type=&quot;text&quot; placeholder=&quot;请输入用户名&quot; v-model=&quot;username&quot; name=&quot;username&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;coze-custom-item-common&quot;&gt;
+            &lt;input autocomplete placeholder=&quot;输入6到20位包含数字,字母密码&quot; v-model=&quot;password&quot; name=&quot;password&quot; type=&quot;password&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;coze-custom-item-common&quot;&gt;
+            &lt;input autocomplete placeholder=&quot;请输入邮箱 登录不需要此邮箱&quot; v-model=&quot;email&quot; name=&quot;email&quot; type=&quot;text&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;slot name=&quot;cozeCustomCenter&quot;&gt;&lt;/slot&gt;
+        &lt;div class=&quot;coze-custom-item-common coze-custom-button coze-custom-register&quot;&gt;
+            &lt;div @click=&quot;verifyIdentify&quot;&gt;注册&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;coze-custom-item-common coze-custom-button coze-custom-login&quot;&gt;
+            &lt;div @click=&quot;loginIn&quot;&gt;登录&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;coze-custom-item-common coze-custom-button coze-custom-out&quot;&gt;
+            &lt;div @click=&quot;loginOut&quot;&gt;登出&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;slot name=&quot;cozeCustomBottom&quot;&gt;&lt;/slot&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="钩子-1"><a href="#钩子-1" class="headerlink" title="钩子"></a>钩子</h3><p>提供的钩子有</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>数据</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cozeLoginOut</td>
+<td>返回数据</td>
+<td>点击登出按钮返回登出状态</td>
+</tr>
+<tr>
+<td>cozeLogin</td>
+<td>返回用户登录相关信息</td>
+<td>点击登录</td>
+</tr>
+<tr>
+<td>cozeRegister</td>
+<td>返回用户注册数据</td>
+<td>在leanCloud中，注册新用户</td>
+</tr>
+</tbody></table>
+<ul>
+<li>使用案例</li>
+</ul>
+<pre><code class="js">&lt;CozeLogin @coze-login-out=&quot;cozeLoginOut&quot; @coze-login=&quot;cozeLogin&quot;&gt;&lt;/CozeLogin&gt;
+
+methods: {
+    cozeLoginOut(data) {
+      console.log(&quot;点击登出按钮&quot;)
+      console.log(data)
+    },
+    cozeLogin(data) {
+      console.log(&quot;点击登录按钮&quot;)
+      console.log(data)
+    },
+    cozeRegister(data) {
+      console.log(&quot;点击注册按钮&quot;)
+      console.log(data)
+    }
+  }
+</code></pre>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211108203333154.png?x-oss-process=style/pictureProcess1" alt="image-20211108203333154"></p>
+<blockquote>
+<p>你可以根据返回的数据，进行额外的一些操作</p>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>registerStatus</p>
+<blockquote>
+<p>为0，表示注册失败，反之</p>
+</blockquote>
+</li>
+<li><p>status</p>
+<blockquote>
+<p>为1，表示成功退出登录</p>
+</blockquote>
+</li>
+<li><p>administrator</p>
+<blockquote>
+<p>为0，表示不是管理员，反之</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="插槽-1"><a href="#插槽-1" class="headerlink" title="插槽"></a>插槽</h3><pre><code class="html">&lt;slot name=&quot;cozeCustomTop&quot;&gt;&lt;/slot&gt;
+&lt;slot name=&quot;cozeCustomBottom&quot;&gt;&lt;/slot&gt;
+</code></pre>
+<h2 id="RegisterUser"><a href="#RegisterUser" class="headerlink" title="RegisterUser"></a>RegisterUser</h2><p>该组件也是一个全局组件，插件提供的默认注册组件，未提供任何钩子等</p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211108203909235.png?x-oss-process=style/pictureProcess1" alt="image-20211108203909235"></p>
+<h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><p><a href="./style.md">样式设置</a></p>
+<h2 id="CozePhoto"><a href="#CozePhoto" class="headerlink" title="CozePhoto"></a>CozePhoto</h2><p>该组件是展示相册的一个全局组件，该组件的展示效果如下图</p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211111000148676.png?x-oss-process=style/pictureProcess1" alt="image-20211111000148676"></p>
+<p>该组件会展示所有用户发布在说说上，并且设置为显示的图片</p>
+<p>::: tip</p>
+<p>后续会加上，不是管理员只显示当前用户对应的图片，管理员显示所有</p>
+<p>:::</p>
+<blockquote>
+<p>该组件没有提供任何的插槽等</p>
+</blockquote>
+<h2 id="样式配置"><a href="#样式配置" class="headerlink" title="样式配置"></a>样式配置</h2><p><a href="./style.md">样式配置</a></p>

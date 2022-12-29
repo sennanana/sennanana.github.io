@@ -1,0 +1,110 @@
+<h1 id="社交"><a href="#社交" class="headerlink" title="社交"></a>社交</h1><p><img src="https://ooszy.cco.vin/img/blog-note/image-20211011151211549.png?x-oss-process=style/pictureProcess1" alt="image-20211011151211549"></p>
+<img src="https://ooszy.cco.vin/img/blog-note/image-20211011151225054.png?x-oss-process=style/pictureProcess1" alt="image-20211011151225054" style="zoom:50%;" />
+
+<blockquote>
+<p>组件位置</p>
+<p>docs/.vuepress/theme/lib/client/components/child/side/HomeSidebarSocialItem.vue</p>
+</blockquote>
+<p>其中，手机端至多显示7个(<code>首页</code>)，侧边栏等不受影响，PC端首页至多只能显示19个，如果超过，则不会显示，侧边栏不受影响</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><pre><code class="js">module.exports = {
+
+    themeConfig: {
+        socials: [
+            {
+                //社交链接
+                aHref: &quot;tencent://message/?uin=2291308094&quot;,
+                // imgSrc: &quot;https://ooszy.cco.vin/img/ico/qq.svg&quot;, 从v1.3.2开始久移除次配置，以前版本用于社交ico图标配置
+
+                //true为在首页显示，反之
+                isHome: true,
+
+                //是否显示此社交信息,如果为false，尽管isHome=true，sidebar=true，也不会显示
+                show: true,
+
+                //是否在侧边栏显示
+                sidebar: true,
+
+                //使用阿里图标 使用的是阿里图标库，我也挑选部分图标，请进入http://ico.cco.vin/theme查看
+                symbol: &#39;#icon-qq&#39;,
+
+                //鼠标移入此图标时，显示的图片，适用于微信等通过二维码添加好友
+                // showImgSrc: &quot;https://ooszy.cco.vin/img/blog-public/wechat.jpg&quot;,
+            },
+            {
+                aHref: &quot;javascript:;&quot;,
+                //imgSrc: /assets/img/ico/wechat.svg,
+                showImgSrc: &quot;https://ooszy.cco.vin/img/blog-public/wechat.jpg&quot;,
+                isHome: true,
+                show: true,
+                symbol: &#39;#icon-weixin&#39;,
+                sidebar: true
+            },
+            {
+                aHref: &quot;https://github.com/qsyyke/&quot;,
+                isHome: true,
+                show: true,
+                sidebar: true,
+                symbol: &#39;#icon-github-fill&#39;
+            },
+            {
+                aHref: &quot;https://stackoverflow.com/&quot;,
+                isHome: true,
+                show: true,
+                symbol: &#39;#icon-stackoverflow&#39;,
+                sidebar: true
+            },
+            {
+                aHref: &quot;https://space.bilibili.com/483962286&quot;,
+                isHome: true,
+                show: true,
+                sidebar: true,
+                symbol: &#39;#icon-bilibili-1&#39;
+            },
+            {
+                aHref: &quot;https://music.163.com/#/user/home?id=1411050784&quot;,
+                isHome: true,
+                show: true,
+                symbol: &#39;#icon-wangyiyunyinle&#39;,
+                sidebar: true
+            },
+            {
+                aHref: &quot;mailto:2291308094@qq.com&quot;,
+                isHome: true,
+                show: true,
+                sidebar: true,
+                symbol: &#39;#icon-email&#39;
+            }
+        ],
+
+    }
+}
+</code></pre>
+<p>::: tip</p>
+<p>配置项解释，请查看</p>
+<p>:::</p>
+<h2 id="修改图标"><a href="#修改图标" class="headerlink" title="修改图标"></a>修改图标</h2><p>社交图标全部使用的是阿里图标库，我选了一些最常用的图标，你可以自己挑选</p>
+<p>地址为<a href="http://aurora-font.cco.vin/">iconfont Demo (cco.vin)</a></p>
+<pre><code class="js">
+module.exports = {
+
+    themeConfig: {
+        socials: [
+            {
+                aHref: &quot;javascript:;&quot;,
+                showImgSrc: &quot;https://ooszy.cco.vin/img/blog-public/wechat.jpg&quot;,
+                isHome: true,
+                show: true,
+                symbol: &#39;#icon-weixin&#39;,
+                sidebar: true
+            },
+        ]
+
+    }
+}
+</code></pre>
+<img src="https://ooszy.cco.vin/img/blog-note/image-20211011155752690.png?x-oss-process=style/pictureProcess1" alt="image-20211011155752690" style="zoom:50%;" />
+
+
+
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211011155915438.png?x-oss-process=style/pictureProcess1" alt="image-20211011155915438"></p>
+<h2 id="评论配置"><a href="#评论配置" class="headerlink" title="评论配置"></a>评论配置</h2><p><a href="../comment/">评论配置</a></p>

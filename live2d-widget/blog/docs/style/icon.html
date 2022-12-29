@@ -1,0 +1,82 @@
+<h1 id="自定义图标"><a href="#自定义图标" class="headerlink" title="自定义图标"></a>自定义图标</h1><h2 id="自定义顶部导航栏图标"><a href="#自定义顶部导航栏图标" class="headerlink" title="自定义顶部导航栏图标"></a>自定义顶部导航栏图标</h2><ol>
+<li><p>进入<a href="https://www.iconfont.cn/">iconfont-阿里巴巴矢量图标库</a></p>
+</li>
+<li><p>挑选自己喜欢的图标</p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211111002835625.png?x-oss-process=style/pictureProcess1" alt="image-20211111002835625"></p>
+</li>
+</ol>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211111002919678.png?x-oss-process=style/pictureProcess1" alt="image-20211111002919678"></p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211111003008017.png?x-oss-process=style/pictureProcess1" alt="image-20211111003008017"></p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211111003037996.png?x-oss-process=style/pictureProcess1" alt="image-20211111003037996"></p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211111003109493.png?x-oss-process=style/pictureProcess1" alt="image-20211111003109493"></p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211127211933492.png?x-oss-process=style/pictureProcess1" alt="image-20211127211933492"></p>
+<p>当你设置了<code>fontFamily</code>之后，先点击下载到本地看看</p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211111081548949.png?x-oss-process=style/pictureProcess1" alt="image-20211111081548949"></p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211127212253018.png?x-oss-process=style/pictureProcess1" alt="image-20211127212253018"></p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211111081748431.png?x-oss-process=style/pictureProcess1" alt="image-20211111081748431"></p>
+<p>然后将此链接复制下来，进入到<code>config.js</code>文件中</p>
+<pre><code class="js">module.exports = {
+    head: [
+        [
+            &quot;link&quot;,
+            {
+                rel: &#39;stylesheet&#39;,
+                type: &#39;text/css&#39;,
+                href: &#39;这里替换成，你上一步在阿里矢量图标库中，复制的css链接&#39;
+            }
+        ]
+    ]
+}
+</code></pre>
+<p>设置好之后，便可以更改<code>navbar</code>的图标了</p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211111082047409.png?x-oss-process=style/pictureProcess1" alt="image-20211111082047409"></p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211111082237278.png?x-oss-process=style/pictureProcess1" alt="image-20211111082237278"></p>
+<p>然后启动，一定要注意，设置之后，一定需要重新启动，也就是重新运行<code>npm run dev</code>命令</p>
+<p><img src="https://ooszy.cco.vin/img/blog-note/image-20211111082400666.png?x-oss-process=style/pictureProcess1" alt="image-20211111082400666"></p>
+<p>::: tip</p>
+<p>我只对一级导航设置了图标，对于二级，三级，四级…导航，你设置了也没有用</p>
+<pre><code class="js">navbar: [
+    {
+        //这里是一级导航
+        text: &#39;问题和bug&#39;,
+        iconClass: &#39;aurora-si-glyph-global&#39;,
+        
+        //children中配置的是二级导航
+        children: [
+            {
+                text: &#39;CHANGELOG&#39;,
+                children: [
+                    &#39;/issue/CHANGELOG.md&#39;
+                ]
+            },
+            {
+                text: &#39;主题详细搭建教程&#39;,
+                children: [
+                    &#39;/readme/introduce.md&#39;,
+                    &#39;/use/useTheme.md&#39;
+                ]
+            },
+            {
+                text: &#39;问题&#39;,
+                children: [
+                    &#39;/issue/&#39;,
+                ]
+            },
+            {
+                text: &#39;bug&#39;,
+                children: [
+                    &#39;/issue/bug.md&#39;,
+                ]
+            }
+        ]
+    },
+]
+</code></pre>
+<p>该主题不仅支持阿里矢量图标库，还支持其他的，只是我演示使用阿里矢量图标库，对于其他的，包括使用阿里矢量图标库，一定要保证图标的<code>font-family</code>是<code>aurora-font</code>，否则不会生效，因为阿里矢量图标库，他默认就会为每一个图标设置<code>class</code>，并且设置</p>
+<pre><code class="css">.custom-aurora-xxx:before {
+  content: &quot;\exxx&quot;;
+}
+</code></pre>
+<p>所以你可以直接复制这个图标得类名就可以了，对于其他的图标，你可以参照这个<a href="http://at.alicdn.com/t/font_2919721_uriegglr5q.css">css</a>样式进行设置</p>
+<p>:::</p>
+<p>到这里就完成了导航栏自定义图标</p>

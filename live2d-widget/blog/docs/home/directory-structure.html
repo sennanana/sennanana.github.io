@@ -1,0 +1,73 @@
+<hr>
+<h2 id="tag-目录结构-主题结构"><a href="#tag-目录结构-主题结构" class="headerlink" title="tag: [目录结构,主题结构]"></a>tag: [目录结构,主题结构]</h2><h1 id="主题目录结构"><a href="#主题目录结构" class="headerlink" title="主题目录结构"></a>主题目录结构</h1><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><pre><code>├─CHANGELOG.md #更新日志
+├─deploy-dist.sh
+├─deploy.sh
+├─package-lock.json
+├─package.json
+├─postcss.config.js
+├─README.md
+├─docs
+|  |- #Markdown文件
+|  ├─.vuepress
+|  |     ├─config.js
+|  |     ├─themeConfig.js #主题配置
+|  |     ├─theme
+|  |     |   ├─package.json
+|  |     |   ├─lib
+|  |     |   |  ├─shared
+|  |     |   |  ├─node
+|  |     |   |  |  ├─auroraTheme.js #主题入口文件
+|  |     |   |  |  ├─auroraTheme.ts
+|  |     |   |  |  ├─utils
+|  |     |   |  ├─client client配置
+|  |     |   |  |   ├─clientAppEnhance.d.ts
+|  |     |   |  |   ├─clientAppEnhance.js
+|  |     |   |  |   ├─utils
+|  |     |   |  |   ├─styles
+|  |     |   |  |   |   ├─theme.style.css #主题默认样式配置
+|  |     |   |  |   ├─public
+|  |     |   |  |   |   ├─js
+|  |     |   |  |   |   | ├─network.js #axios封装
+|  |     |   |  |   |   | ├─tag.js #获取文章所有tag标签工具
+|  |     |   |  |   |   | ├─store #vuex
+|  |     |   |  |   |   ├─fonts #主题默认使用的字体
+|  |     |   |  |   ├─layouts
+|  |     |   |  |   |    ├─404.vue
+|  |     |   |  |   |    └Layout.vue
+|  |     |   |  |   ├─composables
+|  |     |   |  |   ├─components #主题组件
+|  |     |   |  |   |     ├─global #被注册为全局的组件
+|  |     |   |  |   |     ├─child #子组件
+|  |     ├─styles #覆盖主题默认样式文件 
+|  |     |   ├─palette.css #定义Css变量
+|  |     |   ├─index.css #样式文件用于覆盖默认样式或添加额外样式，因此它一般会在你主题样式的末尾引入
+|  |     ├─public #静态文件
+|  |     |   ├─avatar.png
+|  |     |   ├─navbar.js
+|  |     |   └themeConfig.js
+</code></pre>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>主题除了vuepress提供的路由之外，还加入了<code>/tag,/about,/link,/mood</code>四个路由</p>
+<table>
+<thead>
+<tr>
+<th>路由</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/tag</td>
+<td align="center">分类和标签页面</td>
+</tr>
+<tr>
+<td>/link</td>
+<td align="center">友情链接页面</td>
+</tr>
+<tr>
+<td>/about</td>
+<td align="center">关于页面</td>
+</tr>
+<tr>
+<td>/mood</td>
+<td align="center">心情页面</td>
+</tr>
+</tbody></table>

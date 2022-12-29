@@ -1,2 +1,4 @@
+http://example.com/2022/12/29/diary/
 http://example.com/2022/12/28/hello-world/
 http://example.com/
+http://example.com/tags/%E6%97%A5%E8%AF%AD/
